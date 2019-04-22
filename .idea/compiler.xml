@@ -7,14 +7,17 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="assignment4" />
+        <module name="Shopping-cart" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="assignment4" target="1.8" />
+      <module name="Shopping-cart" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Shopping-cart" options="-parameters" />
       <module name="assignment4" options="-parameters" />
     </option>
   </component>
