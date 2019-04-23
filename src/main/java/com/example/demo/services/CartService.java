@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.models.*;
 import com.example.demo.repository.CartRepository;
 import com.example.demo.repository.ItemRepository;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ import java.util.List;
 @Service
 public class CartService {
 
+    static Logger logger = Logger.getLogger(CartService.class);
+
     @Autowired
     CartRepository cartRepository;
 
@@ -19,13 +22,13 @@ public class CartService {
     ItemService itemService;
 
     @Autowired
-    ItemRepository itemRepository;
-
-    @Autowired
     CustomerService customerService;
 
     @Autowired
     ProductService productService;
+
+    @Autowired
+    ItemRepository itemRepository;
 
     public void NewCart(Cart cart)
     {
@@ -44,6 +47,7 @@ public class CartService {
     public void deleteCart(int id)
     {
         cartRepository.deleteById(id);
+        logger.warn("Cart with cart Id "+id+" deleted\n");
     }
 
     public Cart addToCart(int customerId,int productId)
@@ -57,7 +61,11 @@ public class CartService {
                 int qty = itemModel.getQuantity();
                 qty++;
                 itemModel.setQuantity(qty);
-                itemRepository.save(itemModel);
+               ItemModel itemModel1= itemService.addNewItem(itemModel);
+               if(itemModel1 == null) {
+                   logger.error("Requested item is *Out of stock*");
+                   return null;
+               }
                 flag=1;
 
             }
@@ -68,11 +76,18 @@ public class CartService {
             itemModel.setCart(cart);
             Product product = productService.getProductById(productId);
             itemModel.setProduct(product);
-            itemRepository.save(itemModel);
+           ItemModel itemModel1= itemService.addNewItem(itemModel);
             List<ItemModel> itemModelList = cart.getItemModel();
             itemModelList.add(itemModel);
+            if(itemModel1!=null)
             cart.setItemModel(itemModelList);
+            else {
+                logger.error("Requested item is *Out of stock*");
+                return null;
+            }
         }
+
+     logger.warn("Cart updated\n");
 
         return cart;
     }

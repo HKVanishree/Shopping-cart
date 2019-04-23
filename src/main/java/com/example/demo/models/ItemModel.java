@@ -28,7 +28,7 @@ public class ItemModel {
     private Cart cart;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "orderId",nullable = true,columnDefinition="integer")
     private OrderModel orderModel;
 

@@ -1,2 +1,6 @@
 
 `squid:UselessImportCheck"=Remove this unused import 'com.example.demo.models.Customer'.(Ğ›ÅX
+msquid:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(Œèùÿÿÿÿ8•Ë¦š¤-
+ksquid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(à—ûûÿÿÿÿ8•Ë¦š¤-
+qsquid:S4488!"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(Ô«Úğÿÿÿÿÿ8•Ë¦š¤-
+fsquid:S4488&"HReplace "@RequestMapping(method = RequestMethod.PUT)" with "@PutMapping"(ÚŒ¨”8•Ë¦š¤-

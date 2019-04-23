@@ -20,7 +20,7 @@ public class OrderModel {
     @JoinColumn(name = "customerId", nullable = false)
     private Customer customer;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "orderModel", cascade = CascadeType.ALL)
     private List<ItemModel> itemModel=new ArrayList<ItemModel>();
 
@@ -58,5 +58,11 @@ public class OrderModel {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public void addItems(ItemModel newItem)
+    {
+        itemModel.add(newItem);
+
     }
 }

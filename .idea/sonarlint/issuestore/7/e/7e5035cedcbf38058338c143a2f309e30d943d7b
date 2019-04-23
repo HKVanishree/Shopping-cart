@@ -1,2 +1,7 @@
 
+^squid:S4684"@Replace this persistent entity with a simple POJO or DTO object.(îôƒÏ8Ãä•¤¤-
+lsquid:S4488"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(®ŒŸõ8“Ë¦š¤-
+gsquid:S4488$"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(éñÍB8“Ë¦š¤-
+gsquid:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(ÄÑÙ8“Ë¦š¤-
+ksquid:S4488"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(äåëÿÿÿÿÿ8“Ë¦š¤-
 bsquid:UselessImportCheck"?Remove this unused import 'com.example.demo.models.OrderModel'.(•§w

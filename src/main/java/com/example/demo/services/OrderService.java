@@ -6,6 +6,7 @@ import com.example.demo.models.ItemModel;
 import com.example.demo.models.OrderModel;
 import com.example.demo.repository.CartRepository;
 import com.example.demo.repository.OrderRepository;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,9 @@ import java.util.List;
 
 @Service
 public class OrderService {
+
+    static Logger logger = Logger.getLogger(OrderService.class);
+
 
     @Autowired
     OrderRepository orderRepository;
@@ -31,10 +35,15 @@ public class OrderService {
 
         Customer customer=customerService.getCustomerById(customerId);
         Cart cart= customer.getCart();
-        List<ItemModel> itemModelList= cart.getItemModel();
         orderModel.setCustomer(customer);
-        //orderModel.setItemModel(itemModelList);
         orderRepository.save(orderModel);
+        List<ItemModel> itemModelList= cart.getItemModel();
+        logger.info("Transferring items from cart to order");
+        for(ItemModel itemModel:itemModelList) {
+            itemModel.setCart(null);
+            orderModel.addItems(itemModel);
+        }
+        logger.info("Order placed");
     }
 
     public List<OrderModel> getOrders()

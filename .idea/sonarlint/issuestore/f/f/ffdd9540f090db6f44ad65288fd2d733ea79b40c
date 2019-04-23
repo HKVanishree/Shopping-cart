@@ -1,3 +1,4 @@
 
-bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¢¼£ֲ
-~squid:UselessImportCheck	"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(נשחרשÿÿÿÿ
+~squid:UselessImportCheck
+"URemove this unused import 'org.springframework.transaction.annotation.Transactional'.(נשחרשÿÿÿÿ
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¢¼£ֲ

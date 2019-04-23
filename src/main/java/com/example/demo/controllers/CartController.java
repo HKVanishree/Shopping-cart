@@ -34,7 +34,9 @@ public class CartController {
     }
 
     @RequestMapping(value = "/cart/addItem/{custId}/",method = POST)
-    public void addItemToCart(@PathVariable int custId,@RequestBody Integer productId){
-        cartService.addToCart(custId,productId);
+    public String  addItemToCart(@PathVariable int custId,@RequestBody Integer productId){
+       if(cartService.addToCart(custId,productId)==null)
+           return "Out of Stock";
+       return "Product added sucessfully to cart";
     }
 }
