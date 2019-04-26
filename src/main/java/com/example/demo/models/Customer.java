@@ -15,16 +15,18 @@ public class Customer {
     private String name;
     private String email;
     private String password;
+    private int bill;
 
     @JsonBackReference
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "customer")
     public Cart cart;
 
-    public Customer(int customerId, String name, String email, String password, Cart cart) {
+    public Customer(int customerId, String name, String email, String password, int bill, Cart cart) {
         this.customerId = customerId;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.bill = bill;
         this.cart = cart;
     }
 
@@ -77,5 +79,13 @@ public class Customer {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getBill() {
+        return bill;
+    }
+
+    public void setBill(int bill) {
+        this.bill = bill;
     }
 }

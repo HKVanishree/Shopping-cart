@@ -66,7 +66,11 @@ public class CartService {
                    logger.error("Requested item is *Out of stock*");
                    return null;
                }
+               int bill=itemModel.getProduct().getPrice();
+               customer.setBill(customer.getBill()+bill);
+               customerService.editCustomer(customer,customerId);
                 flag=1;
+
 
             }
         }
@@ -85,6 +89,10 @@ public class CartService {
                 logger.error("Requested item is *Out of stock*");
                 return null;
             }
+
+            int bill=itemModel.getProduct().getPrice();
+            customer.setBill(customer.getBill()+bill);
+            customerService.editCustomer(customer,customerId);
         }
 
      logger.warn("Cart updated\n");
@@ -100,12 +108,8 @@ public class CartService {
             if (cart.getCartId() == id) {
                 return cart;
             }
-
-
         }
-
         return null;
-
     }
 
 

@@ -7,6 +7,7 @@ import com.example.demo.repository.CustomerRepository;
 import com.example.demo.repository.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -89,4 +90,13 @@ public class CartServiceTest {
         customerRepository.deleteAll();
         productRepository.deleteAll();
     }
+
+    @Test
+    public void addItemsToCart()
+    {
+
+    }
+
+
+
 }

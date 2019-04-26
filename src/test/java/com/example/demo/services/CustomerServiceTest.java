@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 
 @RunWith(MockitoJUnitRunner.class)
@@ -36,11 +38,17 @@ public class CustomerServiceTest {
         Customer customer3= new Customer(3,"Reva","ramya@gmail.com","123");
         Customer customer4= new Customer(4,"Rafeeq","ramya@gmail.com","123");
         List<Customer> customerList=new ArrayList<>();
+        customerList.add(customer1);
+        customerList.add(customer2);
+        customerList.add(customer3);
+        customerList.add(customer4);
         customerRepository.save(customer1);
         customerRepository.save(customer2);
         customerRepository.save(customer3);
         customerRepository.save(customer4);
+        when(customerService.allCustomer()).thenReturn(customerList);
         List<Customer> customers=customerService.allCustomer();
+        assertEquals(4,customers.size());
         assertEquals(customerList,customers);
     }
 
@@ -52,10 +60,24 @@ public class CustomerServiceTest {
         Customer customer3= new Customer(3,"Reva","ramya@gmail.com","123");
         Customer customer4= new Customer(4,"Rafeeq","ramya@gmail.com","123");
         List<Customer> customerList=new ArrayList<>();
+        customerList.add(customer1);
+        customerList.add(customer2);
+        customerList.add(customer3);
+        customerList.add(customer4);
         customerRepository.save(customer1);
         customerRepository.save(customer2);
         customerRepository.save(customer3);
         customerRepository.save(customer4);
+        when(customerService.getCustomerById(5)).thenReturn(null);
         assertEquals(null,customerService.getCustomerById(5));
     }
-}
+
+//    @Test
+//    public void createCustomer()
+//    {
+//        Customer customer1= new Customer(1,"Ramya","ramya@gmail.com","123");
+//        customerRepository.save(customer1);
+//        assertEquals(1,customerService.allCustomer().size());
+
+    }
+

@@ -1,7 +1,0 @@
-
-lsquid:S4488,"NReplace "@RequestMapping(method = RequestMethod.DELETE)" with "@DeleteMapping"(Þ¬Á®8”Ë¦š¤-
-`squid:UselessImportCheck"=Remove this unused import 'com.example.demo.models.Customer'.(Ð›ÅX
-hsquid:S4488"JReplace "@RequestMapping(method = RequestMethod.POST)" with "@PostMapping"(÷ëÓ›8”Ë¦š¤-
-ksquid:S4488%"HReplace "@RequestMapping(method = RequestMethod.GET)" with "@GetMapping"(Ã»•Ôúÿÿÿÿ8”Ë¦š¤-
-Osquid:S1854!"8Remove this useless assignment to local variable "item".(åÃÆ³
-csquid:S4684 "@Replace this persistent entity with a simple POJO or DTO object.(ý€Œžüÿÿÿÿ8ø˜–¤¤-
